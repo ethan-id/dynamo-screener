@@ -1,0 +1,23 @@
+Skipping image OS validation for hb__8223abe7fae945bc0724e2d3ad0b700c: docker inspect returned 1
+Collecting main service artifacts
+Failed to download artifact '/app/report.json' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "/Users/ethan.idfk/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/trial/artifact_handler.py", line 330, in _download_artifact
+    await source_env.service_download_file(
+    ...<3 lines>...
+    )
+  File "/Users/ethan.idfk/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 1025, in service_download_file
+    await self.download_file(source_path, target_path)
+  File "/Users/ethan.idfk/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 1010, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "/Users/ethan.idfk/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker_unix.py", line 185, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "/Users/ethan.idfk/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker.py", line 631, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__5ry9hkx__env --project-directory /Users/ethan.idfk/Developer/HAI/dynamo/log-report/environment -f /private/var/folders/nw/fy9mcs6s6r3g4f_nk6ss991r0000gn/T/tmpmes1t7vr/log-report__5Ry9hkX__env-docker-compose-resources.json -f /Users/ethan.idfk/.local/share/uv/tools/harbor/lib/python3.13/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /private/var/folders/nw/fy9mcs6s6r3g4f_nk6ss991r0000gn/T/tmpjg6c5eo4/docker-compose-mounts.json cp main:/app/report.json jobs/2026-07-14__19-00-24/log-report__5Ry9hkX/artifacts/app/report.json. Return code: 1. Stdout:  log-report__5ry9hkx__env-main-1 Copying log-report__5ry9hkx__env-main-1:/app/report.json to jobs/2026-07-14__19-00-24/log-report__5Ry9hkX/artifacts/app/report.json
+Error response from daemon: Could not find the file /app/report.json in container 965c595114a7faf25e9ffee913260907191c90a409c993c765bb6fd2c5b90dd5
+. Stderr: None. 

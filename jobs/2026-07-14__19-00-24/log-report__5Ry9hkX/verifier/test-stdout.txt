@@ -1,0 +1,86 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.14, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 4 items
+
+../tests/test_outputs.py FFFF                                            [100%]
+
+=================================== FAILURES ===================================
+______________________ test_report_exists_and_valid_json _______________________
+
+    def test_report_exists_and_valid_json():
+        """Criterion 1: /app/report.json exists and is valid JSON."""
+>       _load_report()
+
+/tests/test_outputs.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _load_report():
+>       assert REPORT_PATH.exists(), "no report.json found"
+E       AssertionError: no report.json found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:8: AssertionError
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+        """Criterion 2: total_requests equals the number of log lines."""
+>       report = _load_report()
+                 ^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _load_report():
+>       assert REPORT_PATH.exists(), "no report.json found"
+E       AssertionError: no report.json found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:8: AssertionError
+_______________________________ test_unique_ips ________________________________
+
+    def test_unique_ips():
+        """Criterion 3: unique_ips equals the count of distinct client IPs."""
+>       report = _load_report()
+                 ^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _load_report():
+>       assert REPORT_PATH.exists(), "no report.json found"
+E       AssertionError: no report.json found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:8: AssertionError
+________________________________ test_top_path _________________________________
+
+    def test_top_path():
+        """Criterion 4: top_path equals the most frequently requested path."""
+>       report = _load_report()
+                 ^^^^^^^^^^^^^^
+
+/tests/test_outputs.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _load_report():
+>       assert REPORT_PATH.exists(), "no report.json found"
+E       AssertionError: no report.json found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+
+/tests/test_outputs.py:8: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_report_exists_and_valid_json - Assertio...
+FAILED ../tests/test_outputs.py::test_total_requests - AssertionError: no rep...
+FAILED ../tests/test_outputs.py::test_unique_ips - AssertionError: no report....
+FAILED ../tests/test_outputs.py::test_top_path - AssertionError: no report.js...
+============================== 4 failed in 0.04s ===============================
